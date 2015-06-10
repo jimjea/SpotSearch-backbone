@@ -22,5 +22,7 @@ $(document).ready(function () {
     window.albumSearchView = new AlbumSearchView({
         el: ('#album-search-container')
     });
-
+    window.artistSearchView = new ArtistSearchView({
+        el: ('#artist-search-container')
+    });
 });
