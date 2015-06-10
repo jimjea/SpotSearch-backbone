@@ -22,24 +22,39 @@
         <div id="search-container">
           <form>
             <div class="input-group input-group-lg col-md-12">
-            <input type="query" class="form-control" id="search-query" placeholder="Search"></input>
-            <span class="input-group-addon"><input id="type-select" type="radio" name="type" value="album" checked="checked"> album</span>
-            <span class="input-group-addon"><input type="radio" name="type" value="artist"> artist</span>
-            <span class="input-group-btn"><button name="button" id="submit" class="btn btn-success">Search</button></span>
+              <input type="query" class="form-control" id="search-query" placeholder="Search"></input>
+              <span class="input-group-addon"><input id="type-select" type="radio" name="type" value="album" checked="checked"> album</span>
+              <span class="input-group-addon"><input type="radio" name="type" value="artist"> artist</span>
+              <span class="input-group-btn"><button name="button" id="submit" class="btn btn-success">Search</button></span>
             </div>
           </form>
         </div>
+
+        <div id="artist-search-container">Artist search results go here...</div>
+        <div id="album-search-container">Album search results go here</div>
 
 
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/lodash/dist/lodash.compat.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/handlebars/handlebars.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/models/search.js"></script>
+        <script src="scripts/views/search.js"></script>
+        <script src="scripts/views/albumsearch.js"></script>
+        <script src="scripts/views/artistsearch.js"></script>
+        <script id="album-search-template" type="text/x-handlebars-template">
+          {{#each albums.items }}
+          <img style="border: 1px solid black; margin: 5px; width: 150px;" src="{{ images.[1].url }}">
+         {{/each}}
+        </script>
+        <script id="loading-template" type="text/x-handlebars-template">
+        loading...
+        </script>
         <!-- <script src="scripts/templates.js"></script> -->
         <!-- endbuild -->
 </body>
