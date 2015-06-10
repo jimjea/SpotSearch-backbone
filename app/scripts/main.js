@@ -14,5 +14,6 @@ window.SpotSearch = {
 
 $(document).ready(function () {
     'use strict';
-    SpotSearch.init();
+    window.searchModel = new SearchModel();
+    window.searchModel.fetch();
 });

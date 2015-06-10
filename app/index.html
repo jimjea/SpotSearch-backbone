@@ -19,29 +19,17 @@
         <![endif]-->
 
 
-        <div class="hero-unit">
-          <h1>'Allo, 'Allo!</h1>
-          <p>You now have</p>
-          <ul>
-            <li>HTML5 Boilerplate</li>
-            <li>jQuery</li>
-            <li>Backbone.js</li>
-            <li>Lodash.js</li>
-            <li>Modernizr</li>
-
-          </ul>
+        <div id="search-container">
+          <form>
+            <div class="input-group input-group-lg col-md-12">
+            <input type="query" class="form-control" id="search-query" placeholder="Search"></input>
+            <span class="input-group-addon"><input id="type-select" type="radio" name="type" value="album" checked="checked"> album</span>
+            <span class="input-group-addon"><input type="radio" name="type" value="artist"> artist</span>
+            <span class="input-group-btn"><button name="button" id="submit" class="btn btn-success">Search</button></span>
+            </div>
+          </form>
         </div>
 
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
 
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -51,7 +39,8 @@
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>
-        <script src="scripts/templates.js"></script>
+        <script src="scripts/models/search.js"></script>
+        <!-- <script src="scripts/templates.js"></script> -->
         <!-- endbuild -->
 </body>
 </html>
