@@ -4,7 +4,7 @@ var AlbumSearchView = Backbone.View.extend({
 
 	initialize: function() {
 		this.listenTo(window.searchModel, 'all', function() {
-			console.log(arguments);
+			// console.log(arguments);
 		});
 		this.listenTo(window.searchModel, 'change', this.render);
 	},
