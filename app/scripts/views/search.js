@@ -1,6 +1,7 @@
 define([
+	'jquery',
 	'backbone'
-], function(Backbone) {
+], function($, Backbone) {
 	var SearchView = Backbone.View.extend({
 		
 		events: {
@@ -15,19 +16,21 @@ define([
 
 		search: function(ev) {
 			ev.preventDefault();
-			window.searchModel.query = $('#search-query').val();
-			window.searchModel.fetch();
+			searchModel.query = $('#search-query').val();
+			searchModel.fetch();
 		},
 
 		selectType: function(ev) {
 			if ($('#type-select').is(':checked')) {
-				window.searchModel.types = 'album';
+				searchModel.types = 'album';
 			} else {
-				window.searchModel.types = 'artist';
+				searchModel.types = 'artist';
 			}
 		}
 
 	});
 
-})
+	return SearchView;
+
+});
 

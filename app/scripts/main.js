@@ -11,7 +11,6 @@ require.config({
     },
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
-        bootstrap: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         handlebars: '../bower_components/handlebars/handlebars',
@@ -22,12 +21,11 @@ require.config({
 require([
     'jquery',
     'backbone',
-    'bootstrap',
     'models/search',
     'views/search',
     'views/albumsearch',
     'views/artistsearch'
-], function($, Backbone, bootstrap, SearchModel, SearchView, AlbumSearchView, ArtistSearchView) {
+], function($, Backbone, SearchModel, SearchView, AlbumSearchView, ArtistSearchView) {
     $(document).ready(function () {
         window.searchModel = new SearchModel();
         window.searchModel.fetch();
