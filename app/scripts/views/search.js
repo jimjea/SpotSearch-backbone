@@ -12,12 +12,13 @@ define([
 
 		initialize: function(options) {
 			this.model = options.model;
+			this.router = options.router;
 		},
 
 		search: function(ev) {
 			ev.preventDefault();
 			this.model.query = $('#search-query').val();
-			this.model.fetch();
+			this.router.navigate('search' + '/' + this.model.types + '/' + this.model.query, {trigger: true});
 		},
 
 		selectType: function(ev) {

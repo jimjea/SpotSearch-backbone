@@ -22,7 +22,8 @@ require([
     'jquery',
     'backbone',
     'models/search',
-], function($, Backbone, SearchModel) {
+    'router/router'
+], function($, Backbone, SearchModel, Router) {
     $(document).ready(function () {
         window.spotapp = {
             models: {},
@@ -31,7 +32,7 @@ require([
 
         spotapp.models.searchModel = new SearchModel();
         spotapp.router = new Router({
-            searchModel: spotapp.models.searchModel;
+            searchModel: spotapp.models.searchModel
         });
 
         Backbone.history.start();
