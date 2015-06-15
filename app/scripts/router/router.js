@@ -36,8 +36,27 @@ define([
 		homeRoute: function() {},
 
 		clearResults: function() {
-			
+			$('#album-search-container').empty();
+			$('#artist-search-container').empty();
+			this.model.attributes = {};
+		},
+
+		albumSearchRoute: function(query) {
+			this.clearResults();
+			this.model.query = query;
+			$('#search-query').val(query);
+			this.model.types = 'album';
+			this.model.fetch();
+		},
+
+		artistSearchRoute: function(query) {
+			this.clearResults();
+			this.model.query = query;
+			$('#search-query').val(query);
+			this.model.types = 'artist';
+			this.model.fetch();
 		}
+
 	});
 
 	return Router;
