@@ -11,20 +11,20 @@ define([
 		},
 
 		initialize: function(options) {
-			this.model = searchModel;
+			this.model = options.model;
 		},
 
 		search: function(ev) {
 			ev.preventDefault();
-			searchModel.query = $('#search-query').val();
-			searchModel.fetch();
+			this.model.query = $('#search-query').val();
+			this.model.fetch();
 		},
 
 		selectType: function(ev) {
 			if ($('#type-select').is(':checked')) {
-				searchModel.types = 'album';
+				this.model.types = 'album';
 			} else {
-				searchModel.types = 'artist';
+				this.model.types = 'artist';
 			}
 		}
 

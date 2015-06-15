@@ -22,33 +22,19 @@ require([
     'jquery',
     'backbone',
     'models/search',
-    'views/search',
-    'views/albumsearch',
-    'views/artistsearch'
-], function($, Backbone, SearchModel, SearchView, AlbumSearchView, ArtistSearchView) {
+], function($, Backbone, SearchModel) {
     $(document).ready(function () {
-        window.searchModel = new SearchModel();
-        window.searchModel.fetch();
-        window.searchView = new SearchView({
-            el: ('#search-container')
+        window.spotapp = {
+            models: {},
+            router: {}
+        };
+
+        spotapp.models.searchModel = new SearchModel();
+        spotapp.router = new Router({
+            searchModel: spotapp.models.searchModel;
         });
-        window.albumSearchView = new AlbumSearchView({
-            el: ('#album-search-container')
-        });
-        window.artistSearchView = new ArtistSearchView({
-            el: ('#artist-search-container')
-        });
+
+        Backbone.history.start();
     });
 
 });
-
-// window.SpotSearch = {
-//     Models: {},
-//     Collections: {},
-//     Views: {},
-//     Routers: {},
-//     init: function () {
-//         'use strict';
-//         console.log('Hello from Backbone!');
-//     }
-// };
