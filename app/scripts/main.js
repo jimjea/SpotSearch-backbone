@@ -31,11 +31,13 @@ require([
         };
 
         spotapp.models.searchModel = new SearchModel();
+
         spotapp.router = new Router({
             searchModel: spotapp.models.searchModel
         });
 
         Backbone.history.start();
+        
     });
 
 });
