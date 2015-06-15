@@ -34,7 +34,8 @@ require([
         spotapp.models.albumModel = new AlbumModel();
 
         spotapp.router = new Router({
-            searchModel: spotapp.models.searchModel
+            searchModel: spotapp.models.searchModel,
+            albumModel: spotapp.models.albumModel
         });
 
         Backbone.history.start();
