@@ -44,7 +44,7 @@ define([
 		albumSearchRoute: function(query) {
 			this.clearResults();
 			this.model.query = query;
-			$('#search-query').val(query);
+			// $('#search-query').val(query);
 			this.model.types = 'album';
 			this.model.fetch();
 		},
@@ -52,7 +52,7 @@ define([
 		artistSearchRoute: function(query) {
 			this.clearResults();
 			this.model.query = query;
-			$('#search-query').val(query);
+			// $('#search-query').val(query);
 			this.model.types = 'artist';
 			this.model.fetch();
 		}
