@@ -1,13 +1,36 @@
-/* global describe, it */
+require.config({
+    baseUrl: '/',
+    paths: {
+        jquery: '/bower_components/jquery/dist/jquery',
+        backbone: '/bower_components/backbone/backbone',
+        underscore: '/bower_components/lodash/dist/lodash',
+        bootstrap: '/bower_components/sass-bootstrap/dist/js/bootstrap',
+        handlebars: '/bower_components/handlebars/handlebars',
+        text: '/bower_components/requirejs-text/text',
+        mocha: '../bower_components/mocha/mocha',
+        chai: '../bower_components/chai/chai',
 
-(function () {
-  'use strict';
+        models: '/scripts/models'
+    }
+});
 
-  describe('Give it some context', function () {
-    describe('maybe a bit more context here', function () {
-      it('should run here few assertions', function () {
+define(function(require) {
+    require('jquery');
+    var chai = require('chai');
+    var mocha = require('mocha');
 
-      });
+    // Chai
+    window.assert = chai.assert;
+    window.expect = chai.expect;
+
+    window.mocha.setup('bdd');
+
+    require([
+
+      '../models/search.spec'
+
+    ], function(require) {
+        window.mocha.run();
     });
-  });
-})();
+
+});
