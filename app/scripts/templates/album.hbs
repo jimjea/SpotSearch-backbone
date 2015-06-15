@@ -1,0 +1,29 @@
+<a href="{{ uri }}"><img style="border: 1px solid black; margin: 5px 20px 5px 5px; width: 200px; float: left;" src="{{ images.[0].url }}">
+</a>
+
+<h1>{{name}}</h1>
+
+<h2>
+  {{#each artists}}
+  <a href = "/#artist/{{ id }}" > {{ name }} </a>
+  {{/each}}
+</h2>
+
+
+<div>
+    <audio id="player" controls="controls" src="#"></audio>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>#</th>
+        <th>Track Name</th>
+    </tr>
+    {{#each tracks.items }}
+        <tr id="track-number-{{ track_number }}">
+            <td>{{ track_number }}</td>
+            <td><a class="track" href="{{ preview_url }}">{{ name }}</a>
+            </td>
+        </tr>
+    {{/each}}
+</table>

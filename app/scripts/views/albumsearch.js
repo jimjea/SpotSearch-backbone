@@ -9,8 +9,7 @@ define([
 
 		events: {},
 
-		initialize: function(options) {
-			this.model = options.model;
+		initialize: function() {
 			this.listenTo(this.model, 'all', function() {
 				// console.log(arguments);
 			});
