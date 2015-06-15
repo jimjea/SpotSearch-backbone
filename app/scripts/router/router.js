@@ -3,33 +3,42 @@ define([
 	'backbone',
 	'views/search',
 	'views/albumsearch',
-	'views/artistsearch'
-], function($, Backbone, SearchView, AlbumSearchView, ArtistSearchView) {
+	'views/artistsearch',
+	'views/album'
+], function($, Backbone, SearchView, AlbumSearchView, ArtistSearchView, AlbumView) {
 	var Router = Backbone.Router.extend({
 
 		routes: {
 			'': 'homeRoute',
 			'search/album/:query': 'albumSearchRoute',
-			'search/artist/:query': 'artistSearchRoute'
+			'search/artist/:query': 'artistSearchRoute',
+			'album/:albumid': 'albumViewRoute'
+
 		},
 
 		initialize: function(options) {
-			this.model = options.searchModel;
+			this.searchModel = options.searchModel;
+			this.albumModel = options.albumModel;
 
 			this.searchView = new SearchView({
 				el: $('#search-container'),
-				model: this.model,
+				model: this.searchModel,
 				router: this
 			});
 
 			this.albumSearchView = new AlbumSearchView({
 				el: $('#album-search-container'),
-				model: this.model
+				model: this.searchModel
 			});
 
 			this.artistSearchView = new ArtistSearchView({
 				el: $('#artist-search-container'),
-				model: this.model
+				model: this.searchModel
+			});
+
+			this.albumView = new AlbumView({
+				el: $('#album-container'),
+				model: this.albumModel
 			})
 		},
 
@@ -38,23 +47,32 @@ define([
 		clearResults: function() {
 			$('#album-search-container').empty();
 			$('#artist-search-container').empty();
-			this.model.attributes = {};
+			this.searchModel.attributes = {};
 		},
 
 		albumSearchRoute: function(query) {
 			this.clearResults();
-			this.model.query = query;
+			this.searchModel.query = query;
 			// $('#search-query').val(query);
-			this.model.types = 'album';
-			this.model.fetch();
+			this.searchModel.types = 'album';
+			this.searchModel.fetch();
 		},
 
 		artistSearchRoute: function(query) {
 			this.clearResults();
-			this.model.query = query;
+			this.searchModel.query = query;
 			// $('#search-query').val(query);
-			this.model.types = 'artist';
-			this.model.fetch();
+			this.searchModel.types = 'artist';
+			this.searchModel.fetch();
+		},
+
+		albumViewRoute: function(albumId) {
+			console.log(albumId)
+			this.clearResults();
+			this.albumModel.albumId = albumId;
+			this.albumModel.fetch({
+				reset: true
+			});
 		}
 
 	});

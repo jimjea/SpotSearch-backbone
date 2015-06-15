@@ -11,7 +11,6 @@ define([
 		},
 
 		initialize: function(options) {
-			this.model = options.model;
 			this.router = options.router;
 		},
 

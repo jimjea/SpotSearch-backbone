@@ -22,8 +22,9 @@ require([
     'jquery',
     'backbone',
     'models/search',
+    'models/album',
     'router/router'
-], function($, Backbone, SearchModel, Router) {
+], function($, Backbone, SearchModel, AlbumModel, Router) {
     $(document).ready(function () {
         window.spotapp = {
             models: {},

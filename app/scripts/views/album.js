@@ -18,7 +18,7 @@ define([
 		},
 
 		render: function() {
-			var date = this.model.toJSON();
+			var data = this.model.toJSON();
 			var template = Handlebars.compile(albumTemplate);
 			this.$el.html(template(data));
 		},
@@ -30,7 +30,7 @@ define([
 
 		playTrack: function(e) {
 			e.preventDefault();
-			$('#player').attr('src': e.currentTarget.attributes.href.value);
+			$('#player').attr({'src': e.currentTarget.attributes.href.value});
 			$('#player').trigger('play');
 		}
 
