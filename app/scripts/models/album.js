@@ -2,18 +2,25 @@ define([
 	'backbone'
 ], function(Backbone) {
 
-	url: function() {
-		return 'https://api.spotify.com/v1/albums/' + this.albumId;
-	},
+	var AlbumModel = Backbone.Model.extend({
 
-	initialize: function() {
-		this.albumId = '';
-	},
+		url: function() {
+			return 'https://api.spotify.com/v1/albums/' + this.albumId;
+		},
 
-	validate: function(attrs, options) {},
+		initialize: function() {
+			this.albumId = '';
+		},
 
-	parse: function(response, options) {
-		return reponse;
-	}
+		validate: function(attrs, options) {},
+
+		parse: function(response, options) {
+			return reponse;
+		}
+	
+	});
+
+	return AlbumModel;
+
 	
 });

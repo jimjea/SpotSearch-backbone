@@ -31,6 +31,7 @@ require([
         };
 
         spotapp.models.searchModel = new SearchModel();
+        spotapp.models.albumModel = new AlbumModel();
 
         spotapp.router = new Router({
             searchModel: spotapp.models.searchModel
