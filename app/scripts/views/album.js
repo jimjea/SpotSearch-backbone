@@ -18,9 +18,9 @@ define([
 		},
 
 		render: function() {
-			var data = this.model.toJSON();
+			var model = this.model.toJSON();
 			var template = Handlebars.compile(albumTemplate);
-			this.$el.html(template(data));
+			this.$el.html(template(model));
 		},
 
 		loading: function() {

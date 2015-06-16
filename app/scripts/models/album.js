@@ -9,13 +9,13 @@ define([
 		},
 
 		initialize: function() {
-			this.albumId = '';
+			this.albumId = '52PLNrXUMtPUZwcueV75J1';
 		},
 
 		validate: function(attrs, options) {},
 
 		parse: function(response, options) {
-			return reponse;
+			return response;
 		}
 	
 	});
