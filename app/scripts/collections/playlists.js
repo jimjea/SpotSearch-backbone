@@ -11,7 +11,7 @@ define([
 			});
 		},
 
-		localStore: new Backbone.LocalStorage('playlist-localstorage'),
+		localStorage: new Backbone.LocalStorage('playlist-localstorage'),
 
 		validate: function(attrs, options) {},
 
