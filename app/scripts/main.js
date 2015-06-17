@@ -25,7 +25,7 @@ require([
     'localstorage',
     'models/search',
     'models/album',
-    'collections/playlists'
+    'collections/playlists',
     'router/router'
 ], function($, Backbone, localStorage, SearchModel, AlbumModel, PlaylistCollection, Router) {
     $(document).ready(function () {
