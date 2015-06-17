@@ -15,7 +15,7 @@ define([
 		parse: function(response, options) {
 
 		}
-		
+
 	});
 
 	return Playlist;
