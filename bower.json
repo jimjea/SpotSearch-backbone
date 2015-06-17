@@ -8,7 +8,8 @@
     "modernizr": "~2.7.1",
     "handlebars": "~3.0.3",
     "requirejs": "~2.1.18",
-    "requirejs-text": "~2.0.14"
+    "requirejs-text": "~2.0.14",
+    "Backbone.localStorage": "~1.1.16"
   },
   "devDependencies": {}
 }

@@ -19,6 +19,7 @@ define([
 		initialize: function(options) {
 			this.searchModel = options.searchModel;
 			this.albumModel = options.albumModel;
+			this.playlistCollection = options.playlistCollection;
 
 			this.searchView = new SearchView({
 				el: $('#search-container'),
@@ -38,7 +39,8 @@ define([
 
 			this.albumView = new AlbumView({
 				el: $('#album-container'),
-				model: this.albumModel
+				model: this.albumModel,
+				collection: this.playlistCollection
 			})
 		},
 
