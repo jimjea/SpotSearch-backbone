@@ -1,5 +1,6 @@
-/*global SpotSearch, $*/
+//main.js setup for require
 
+/*global require*/
 'use strict';
 
 require.config({
@@ -8,6 +9,7 @@ require.config({
             deps: ['jquery'],
             exports: 'jquery'
         }
+
     },
     paths: {
         jquery: '../bower_components/jquery/dist/jquery',
@@ -27,26 +29,29 @@ require([
     'models/album',
     'collections/playlists',
     'router/router'
-], function($, Backbone, localStorage, SearchModel, AlbumModel, PlaylistCollection, Router) {
-    $(document).ready(function () {
-        window.spotapp = {
-            models: {},
-            router: {},
-            collections: {}
-        };
+], function ($, Backbone, localStorage, SearchModel, AlbumModel, PlaylistCollection, Router) {
 
-        spotapp.models.searchModel = new SearchModel();
-        spotapp.models.albumModel = new AlbumModel();
-        spotapp.collections.playlistCollection = new PlaylistCollection()
+    $(document).ready(function() {
 
-        spotapp.router = new Router({
-            searchModel: spotapp.models.searchModel,
-            albumModel: spotapp.models.albumModel,
-            playlistCollection: spotapp.collections.playlistCollection 
-        });
+      window.spotapp = {
+        models: {},
+        collections: {},
+        router:{}
+      };
 
-        Backbone.history.start();
-        
+      spotapp.models.searchModel = new SearchModel();
+      spotapp.models.albumModel = new AlbumModel();
+      spotapp.collections.playlistCollection = new PlaylistCollection();
+      spotapp.collections.playlistCollection.fetch();
+
+      spotapp.router = new Router({
+        searchModel: spotapp.models.searchModel,
+        albumModel: spotapp.models.albumModel,
+        playlistCollection: spotapp.collections.playlistCollection
+      });
+
+      Backbone.history.start();
+
     });
 
 });

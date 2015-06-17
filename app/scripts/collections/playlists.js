@@ -15,7 +15,7 @@ define([
 
 		validate: function(attrs, options) {},
 
-		parse: function(reponse, options) {
+		parse: function(response, options) {
 			return response;
 		}
 	});

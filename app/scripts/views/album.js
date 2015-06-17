@@ -20,7 +20,8 @@ define([
             this.listenTo(this.model, 'change', this.render);
         },
         render: function() {
-            var model = this.model.toJSON();
+        	var model = this.model.toJSON();
+        	model.playlists = this.collection.toJSON();
             var template = Handlebars.compile(albumViewTemplate);
             this.$el.html(template(model));
         },

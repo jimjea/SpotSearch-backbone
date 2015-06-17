@@ -17,15 +17,26 @@
 <button id="add-playlist" name="add-playlist">Add Playlist</button>
 
 <table class="table table-striped">
-    <tr>
-        <th>#</th>
-        <th>Track Name</th>
-    </tr>
-    {{#each tracks.items }}
-        <tr id="track-number-{{ track_number }}">
-            <td>{{ track_number }}</td>
-            <td><a class="track" href="{{ preview_url }}">{{ name }}</a>
-            </td>
-        </tr>
-    {{/each}}
+  <tr>
+    <th>#</th>
+     <th>Track Name</th>
+     <th>Add to Playlist</th>
+  </tr>
+  {{#each tracks.items}}
+    <tr id="track-number-{{ track_number }}">
+      <td>{{ track_number }}</td>
+      <td><a class="track" href="{{ preview_url }}">{{ name }}</a>
+    </td>
+    <td>
+      <select>
+      {{#each ../playlists}}
+        <option value="{{id}}">
+        {{name}}
+        </option>
+      {{/each}}
+      </select>
+      <button class="add-track btn btn-sm" formaction="#" name="add-track" id="track-{{ track_number }}">Add Track</button>
+    </td>
+  </tr>
+  {{/each}}
 </table>
