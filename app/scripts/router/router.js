@@ -69,7 +69,6 @@ define([
 		},
 
 		albumViewRoute: function(albumId) {
-			console.log(albumId)
 			this.clearResults();
 			this.albumModel.albumId = albumId;
 			this.albumModel.fetch({

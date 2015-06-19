@@ -13,7 +13,7 @@ define([
 		},
 
 		parse: function(response, options) {
-
+			return response;
 		}
 
 	});

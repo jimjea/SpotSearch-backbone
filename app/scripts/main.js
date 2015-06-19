@@ -43,6 +43,7 @@ require([
       spotapp.models.albumModel = new AlbumModel();
       spotapp.collections.playlistCollection = new PlaylistCollection();
       spotapp.collections.playlistCollection.fetch();
+      console.log(spotapp.collections.playlistCollection.toJSON())
 
       spotapp.router = new Router({
         searchModel: spotapp.models.searchModel,

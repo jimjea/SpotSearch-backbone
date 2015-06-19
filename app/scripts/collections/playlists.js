@@ -7,7 +7,7 @@ define([
 
 		initialize: function() {
 			this.on('all', function() {
-				console.log(arguments);
+				// console.log(arguments);
 			});
 		},
 
